@@ -121,7 +121,7 @@ const internshipExperience = [
 
 const education = [
   {
-    school: 'Universidad Mariano Gálvez de Guatemala',
+    school: 'University Mariano Gálvez de Guatemala',
     url: 'university',
     grade: 'Systems Engineering',
     period: {
@@ -143,7 +143,7 @@ const education = [
   {
     school: 'Liceo Integral Nueva Generación',
     url: 'high-school-2',
-    grade: 'Secondary School Diploma in Science and Arts',
+    grade: 'Secondary School Diploma - Years 2 to 3',
     period: {
       start: '2013',
       end: '2014',
@@ -153,7 +153,7 @@ const education = [
   {
     school: 'Christian School "El Hashamayim"',
     url: 'high-school-1',
-    grade: 'Secondary School Diploma in Science and Arts',
+    grade: 'Secondary School - Year 1',
     period: {
       start: '2012',
       end: '2012',

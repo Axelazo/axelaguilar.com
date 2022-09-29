@@ -1,4 +1,5 @@
 import React from 'react';
+import '@fontsource/inter';
 import { Routes, Route } from 'react-router-dom';
 import { ChakraProvider, Box, Stack, Flex, Container } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
@@ -14,10 +15,7 @@ import Portfolio from './pages/Portfolio';
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <ColorModeSwitcher
-        style={{ position: 'absolute', right: 0 }}
-        zIndex={2}
-      />
+      <ColorModeSwitcher zIndex={2} />
       <Flex
         w={'full'}
         minH={'100vh'}

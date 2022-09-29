@@ -71,12 +71,7 @@ export default function About() {
                   </Text>
                   <Text textAlign={'justify'}>herdezx@gmail.com</Text>
                 </HStack>
-                <HStack py={2}>
-                  <Text textAlign={'justify'} fontWeight={'bold'} minW={'8rem'}>
-                    Marital status:
-                  </Text>
-                  <Text textAlign={'justify'}>Married </Text>
-                </HStack>
+
                 <HStack py={2}>
                   <Text textAlign={'justify'} fontWeight={'bold'} minW={'8rem'}>
                     Location:
@@ -93,7 +88,7 @@ export default function About() {
             </Box>
           </Flex>
           <Flex w={'full'} alignSelf={'flex-start'}>
-            <Box pt={6}>
+            <Box pt={6} w={'full'}>
               <Box>
                 <Heading>Skills</Heading>
               </Box>
@@ -113,6 +108,9 @@ export default function About() {
                     problems solver
                   </li>
                   <li>
+                    Well understanding of Object-oriented programming principles
+                  </li>
+                  <li>
                     Deep understanding of Blender and the Adobe Ecosystem (Ps,
                     Ai, Ae, Pt)
                   </li>
@@ -120,12 +118,41 @@ export default function About() {
                     Understanding of form, shape, silhouette, and volume to easy
                     translate a Concept Art into a 3D model
                   </li>
+                  <li>
+                    Management of Operative Systems (such as Oracle Linux 8.2,
+                    Oracle Solaris, Ubuntu Server 20.04)
+                  </li>
                 </Text>
               </Box>
             </Box>
           </Flex>
           <Flex w={'full'} alignSelf={'flex-start'}>
-            <Box pt={6}>
+            <Box pt={6} w={'full'}>
+              <Box>
+                <Heading>Hobbies</Heading>
+              </Box>
+              <Box
+                backgroundColor={useColorModeValue('#fcfcfd', '#211E2B')}
+                py={3}
+                px={4}
+                rounded={'lg'}
+                w={'full'}
+                mt={6}
+                p={8}
+              >
+                <Text pt={2} textAlign={'justify'} minW={'full'}>
+                  <li>Avid movie and TV shows watcher</li>
+                  <li>Playing Videogames</li>
+                  <li>Working out</li>
+                  <li>Creating video essays</li>
+                  <li>Game Development</li>
+                  <li>Troubleshooting computers</li>
+                </Text>
+              </Box>
+            </Box>
+          </Flex>
+          <Flex w={'full'} alignSelf={'flex-start'}>
+            <Box pt={6} pb={8} w={'full'}>
               <Box>
                 <Heading>Languages</Heading>
               </Box>

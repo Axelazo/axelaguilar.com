@@ -8,21 +8,18 @@ import {
   Icon,
   Badge,
   HStack,
+  Text,
 } from '@chakra-ui/react';
 
 export default function PortfolioItem(props) {
   return (
     <Center>
       <Box
-        maxW={'445px'}
         w={'full'}
-        bg={useColorModeValue('white', 'gray.900')}
-        boxShadow={'2xl'}
+        backgroundColor={useColorModeValue('#fcfcfd', '#211E2B')}
         rounded={'md'}
         p={6}
         overflow={'hidden'}
-        maxH={'500px'}
-        minH={'500px'}
       >
         <Box bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
           <Image
@@ -31,35 +28,33 @@ export default function PortfolioItem(props) {
             minW={'100%'}
           />
         </Box>
-        <Stack>
-          <Heading
-            color={useColorModeValue('gray.700', 'white')}
-            fontSize={'2xl'}
-            fontFamily={'body'}
-          >
-            {props.portfolioData.title}
-          </Heading>
+        <Stack minH={'4rem'}>
           <Box>
-            <HStack>
-              <Box>
-                <Badge>Technologies used:</Badge>
-              </Box>
-              <Box>
-                {' '}
-                {props.portfolioData.techs?.map((tech, index) => {
-                  return (
-                    <Icon
-                      key={index}
-                      as={tech}
-                      alt={'Ionic'}
-                      mx={2}
-                      boxSize={6}
-                    ></Icon>
-                  );
-                })}
-              </Box>
-            </HStack>
+            <Heading
+              color={useColorModeValue('gray.700', 'white')}
+              fontSize={'2xl'}
+              fontFamily={'body'}
+              whiteSpace={'nowrap'}
+            >
+              {props.portfolioData.title}
+            </Heading>
           </Box>
+          <Box>
+            <Text>{props.portfolioData.description}</Text>
+          </Box>
+          <Center pt={2}>
+            {props.portfolioData.techs?.map((tech, index) => {
+              return (
+                <Icon
+                  key={index}
+                  as={tech}
+                  alt={'Ionic'}
+                  mx={2}
+                  boxSize={6}
+                ></Icon>
+              );
+            })}
+          </Center>
         </Stack>
       </Box>
     </Center>

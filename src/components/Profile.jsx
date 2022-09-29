@@ -8,17 +8,19 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { FaLinkedin, FaGithub, FaArtstation } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
 import React, { useState, useEffect } from 'react';
 import Social from './Social';
 import './Profile.css';
 
 const socials = [
-  { icon: FaLinkedin, url: 'https://www.facebook.com/TimeWarpAnimation' },
+  { icon: FaLinkedin, url: 'https://www.linkedin.com/in/axelazo' },
   { icon: FaArtstation, url: 'https://www.artstation.com/axelazo' },
   { icon: FaGithub, url: 'https://github.com/Axelazo/' },
+  { icon: MdEmail, url: 'mailto:herdezx@gmail.com' },
 ];
 
-const titles = ['3D Artist', 'Software Engineer', 'Web Developer'];
+const titles = ['3D Artist', 'Software Developer', 'Web Developer'];
 
 export default function Profile() {
   const [index, setIndex] = useState(0);

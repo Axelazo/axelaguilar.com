@@ -18,6 +18,28 @@ const projects = [
     description: 'Android app to save quotes!',
     url: 'university',
   },
+  {
+    title: 'Quotify!',
+    description: 'Android app to save quotes!',
+    url: 'university',
+    techs: [DiReact, IoLogoIonic, DiAndroid, DiSqllite],
+  },
+  {
+    title: 'Time Warp Animation!',
+    description: 'Android app to save quotes!',
+    url: 'university',
+  },
+  {
+    title: 'Quotify!',
+    description: 'Android app to save quotes!',
+    url: 'university',
+    techs: [DiReact, IoLogoIonic, DiAndroid, DiSqllite],
+  },
+  {
+    title: 'Time Warp Animation!',
+    description: 'Android app to save quotes!',
+    url: 'university',
+  },
 ];
 
 export default function Portfolio() {
@@ -27,10 +49,12 @@ export default function Portfolio() {
         minH={'100vh'}
         maxH={'100vh'}
         overflow={{ base: 'visible', sm: 'visible', md: 'auto' }}
-        p={8}
-        templateColumns={{ base: 'repeat(1, 2fr)', md: 'repeat(2, 2fr)' }}
+        p={{ base: 2, md: 8 }}
+        templateColumns={{ base: 'repeat(1, 2fr)', md: 'repeat(3, 2fr)' }}
         gap={6}
         w={{ base: 'full' }}
+        className={'test'}
+        overflowX={'hidden'}
       >
         {projects.map((project, index) => {
           return (
@@ -38,7 +62,6 @@ export default function Portfolio() {
               key={index}
               w={{ base: 'full', md: 'full' }}
               alignSelf={'center'}
-              p={0}
             >
               <PortfolioItem portfolioData={project}></PortfolioItem>
             </GridItem>

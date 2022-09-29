@@ -23,7 +23,6 @@ const Links = [
   { text: 'About', path: 'about', icon: FaInfoCircle },
   { text: 'Resume', path: 'resume', icon: FaFileAlt },
   { text: 'Portfolio', path: 'portfolio', icon: FaBookOpen },
-  { text: 'Contact', path: 'contact', icon: FaPhoneAlt },
 ];
 
 export default function SidebarMenu() {

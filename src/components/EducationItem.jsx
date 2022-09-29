@@ -23,6 +23,7 @@ export default function EducationItem(props) {
       >
         <Image
           w={{ base: '3rem' }}
+          h={{ base: '3rem' }}
           src={`/img/education/${props.education.url}.png`}
           rounded={'lg'}
           border={'1px'}
@@ -30,7 +31,7 @@ export default function EducationItem(props) {
         ></Image>
         <Box pl={2}>
           <Heading fontSize={'xl'}>{props.education.grade}</Heading>
-          <Text fontWeight={'light'} color={'grey.500'}>
+          <Text fontWeight={'100'} color={'#a1a1a1'}>
             {props.education.school} • {props.education.period.start}
             {' - '}
             {props.education.period.end}

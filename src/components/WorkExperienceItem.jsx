@@ -21,34 +21,32 @@ export default function WorkExperienceItem(props) {
       <Stack direction={['column', 'row']} p={2} w={'full'} mt={2}>
         <Image
           w={{ base: '3rem' }}
+          h={{ base: '3rem' }}
           src={`/img/work/${props.workExperience.url}.png`}
           rounded={'lg'}
           border={'1px'}
           borderColor={'grey'}
         ></Image>
         <Box pl={2} w={'full'}>
-          <Flex
-            w={'full'}
-            minW={'full'}
-            align={'end'}
-            position={'relative'}
-            className={'retard'}
-          >
-            <Heading fontSize={'xl'} pr={{ base: 12 }}>
+          <Flex w={'full'} minW={'full'} align={'end'} position={'relative'}>
+            <Heading fontSize={'xl'} w={'90%'}>
               {props.workExperience.role}
             </Heading>
             <Box
               position={{ base: 'static', md: 'absolute' }}
               right={0}
               alignSelf={'end'}
+              whiteSpace={'nowrap'}
             >
-              {props.workExperience.period.start}
-              {' - '}
-              {props.workExperience.period.end}
+              <Text>
+                {props.workExperience.period.start}
+                {' - '}
+                {props.workExperience.period.end}
+              </Text>
             </Box>
           </Flex>
 
-          <Text fontWeight={'light'} color={'grey.500'}>
+          <Text fontWeight={'light'} color={'#a1a1a1'}>
             {`${props.workExperience.company}, ${props.workExperience.location}`}
           </Text>
         </Box>
