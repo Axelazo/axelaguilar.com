@@ -1,6 +1,6 @@
 import React from 'react';
 import '@fontsource/inter';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import { ChakraProvider, Box, Stack, Flex, Container } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 
@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import SidebarMenu from './components/SidebarMenu';
 import Portfolio from './pages/Portfolio';
+import Project from './components/Project';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
               <Route exact path="/about" element={<About />} />
               <Route exact path="/resume" element={<Resume />} />
               <Route exact path="/portfolio" element={<Portfolio />} />
+              <Route exact path="/portfolio/:id" element={<Project />} />
             </Routes>
           </Stack>
         </Container>

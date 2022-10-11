@@ -1,48 +1,70 @@
+import { React, useEffect, useState } from 'react';
 import {
   Flex,
   Stack,
   HStack,
-  VStack,
   Box,
-  Text,
   Heading,
   useColorModeValue,
+  Skeleton,
 } from '@chakra-ui/react';
-import React from 'react';
+import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
 
 export default function About() {
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const baseURL = 'http://localhost:1337';
+  const apiURL = `${baseURL}/api`;
+  const token =
+    'd9cffaaf45384cfe8e6d7a49cf4649ab824adba0c885448ae71a9d8d7d2fa32f0a8945d5c98e24f2bf86e6939a7c9fef293ed6547276aa2d9db7a76eb2a3ccac8d7b73375fcd207c4eff42a58afbbc6ef07c0291636a64e10cb4130e0fbdd880369d28a6c3435951a70a4d14350c415ba76a04577ef2450baefa38ef6e7079d6';
+
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  useEffect(() => {
+    axios.get(`${apiURL}/about`, config).then(response => {
+      setData(response.data.data.attributes);
+      setTimeout(function () {
+        setIsLoading(false);
+      }, 500);
+    });
+  }, []);
+
   return (
     <Flex
       w={'full'}
       overflow={{ sm: 'visible', md: 'auto' }}
       maxH={{ base: '100vh', md: '100vh' }}
-      css={{
-        '&::-webkit-scrollbar': {
-          width: '10px',
-          backgroundColor: '#F5F5F5',
-        },
-        '&::-webkit-scrollbar-track': {
-          boxShadow: 'inset 0 0 6px rgba(0,0,0,0.3)',
-          backgroundColor: '#F5F5F5',
-        },
-        '&::-webkit-scrollbar-thumb': {
-          backgroundColor: '#A1A1A1',
-        },
-      }}
     >
-      <Stack minH={'100VH'} p={8}>
-        <Box alignSelf={'start'}>
+      <Stack minH={'100VH'} p={8} w={'full'}>
+        <Box alignSelf={'start'} w={'full'}>
           <Heading fontSize={'6xl'}>About me!</Heading>
-          <Text textAlign={'justify'} mt={6} fontSize={'lg'}>
-            My name is Axel Aguilar, I'm a self- taught 3D Artist / Programmer
-            currently studying the last year of Systems Engineering, I have
-            professional experience in the 3D modeling workflow for animation
-            and videogames, I also have experience as a student and trainee in
-            Software Development for both web and desktop environments, I love
-            visual and special effects, cinephile (800+ movies watched) and a
-            gamer since I was 6 years old. My goal is to become a Technical
-            Artist
-          </Text>
+          <Box
+            backgroundColor={useColorModeValue('#fcfcfd', '#211E2B')}
+            py={3}
+            px={4}
+            rounded={'lg'}
+            w={'full'}
+            mt={6}
+            p={8}
+          >
+            {isLoading ? (
+              <>
+                {' '}
+                <Skeleton h={'1rem'} w={'full'} />
+                <Skeleton h={'1rem'} w={'full'} mt={2} />
+                <Skeleton h={'1rem'} w={'full'} mt={2} />
+                <Skeleton h={'1rem'} w={'full'} mt={2} />
+                <Skeleton h={'1rem'} w={'full'} mt={2} />
+                <Skeleton h={'1rem'} w={'full'} mt={2} />
+              </>
+            ) : (
+              <ReactMarkdown>{data.about}</ReactMarkdown>
+            )}
+          </Box>
         </Box>
         <Stack alignContent={'flex-start'}>
           <Flex w={'full'} alignSelf={'flex-start'}>
@@ -59,31 +81,22 @@ export default function About() {
                 mt={6}
                 p={8}
               >
-                <HStack py={2}>
-                  <Text textAlign={'justify'} fontWeight={'bold'} minW={'8rem'}>
-                    Full name:
-                  </Text>
-                  <Text textAlign={'justify'}>Axel Isaí Aguilar Hernández</Text>
-                </HStack>
-                <HStack py={2}>
-                  <Text textAlign={'justify'} fontWeight={'bold'} minW={'8rem'}>
-                    Email:
-                  </Text>
-                  <Text textAlign={'justify'}>herdezx@gmail.com</Text>
-                </HStack>
+                {isLoading ? (
+                  <>
+                    <HStack>
+                      {' '}
+                      <Skeleton h={'1rem'} w={'10%'} />
+                      <Skeleton h={'1rem'} w={'15%'} mt={2} />
+                    </HStack>
 
-                <HStack py={2}>
-                  <Text textAlign={'justify'} fontWeight={'bold'} minW={'8rem'}>
-                    Location:
-                  </Text>
-                  <Text textAlign={'justify'}>Flores, Petén, Guatemala</Text>
-                </HStack>
-                <HStack py={2}>
-                  <Text textAlign={'justify'} fontWeight={'bold'} minW={'8rem'}>
-                    Date of Birth:
-                  </Text>
-                  <Text textAlign={'justify'}>March 7th, 1999</Text>
-                </HStack>
+                    <Skeleton h={'1rem'} w={'50%'} mt={2} />
+                    <Skeleton h={'1rem'} w={'50%'} mt={2} />
+                    <Skeleton h={'1rem'} w={'50%'} mt={2} />
+                    <Skeleton h={'1rem'} w={'50%'} mt={2} />
+                  </>
+                ) : (
+                  <ReactMarkdown>{data.personal}</ReactMarkdown>
+                )}
               </Box>
             </Box>
           </Flex>
@@ -101,28 +114,19 @@ export default function About() {
                 mt={6}
                 p={8}
               >
-                <Text pt={2} textAlign={'justify'}>
-                  <li>
-                    Highly analytical, critical thinker, data analyzer, make
-                    difficult decisions, pattern recognizer, and complex
-                    problems solver
-                  </li>
-                  <li>
-                    Well understanding of Object-oriented programming principles
-                  </li>
-                  <li>
-                    Deep understanding of Blender and the Adobe Ecosystem (Ps,
-                    Ai, Ae, Pt)
-                  </li>
-                  <li>
-                    Understanding of form, shape, silhouette, and volume to easy
-                    translate a Concept Art into a 3D model
-                  </li>
-                  <li>
-                    Management of Operative Systems (such as Oracle Linux 8.2,
-                    Oracle Solaris, Ubuntu Server 20.04)
-                  </li>
-                </Text>
+                {isLoading ? (
+                  <>
+                    {' '}
+                    <Skeleton h={'1rem'} w={'full'} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                  </>
+                ) : (
+                  <ReactMarkdown>{data.skills}</ReactMarkdown>
+                )}
               </Box>
             </Box>
           </Flex>
@@ -140,14 +144,19 @@ export default function About() {
                 mt={6}
                 p={8}
               >
-                <Text pt={2} textAlign={'justify'} minW={'full'}>
-                  <li>Avid movie and TV shows watcher</li>
-                  <li>Playing Videogames</li>
-                  <li>Working out</li>
-                  <li>Creating video essays</li>
-                  <li>Game Development</li>
-                  <li>Troubleshooting computers</li>
-                </Text>
+                {isLoading ? (
+                  <>
+                    {' '}
+                    <Skeleton h={'1rem'} w={'full'} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                  </>
+                ) : (
+                  <ReactMarkdown>{data.hobbies}</ReactMarkdown>
+                )}
               </Box>
             </Box>
           </Flex>
@@ -165,11 +174,17 @@ export default function About() {
                 mt={6}
                 p={8}
               >
-                <Text pt={2} textAlign={'justify'} minW={'full'}>
-                  <li>Spanish (native)</li>
-                  <li>English (fluent)</li>
-                  <li>Portuguese (basic)</li>
-                </Text>
+                {isLoading ? (
+                  <>
+                    {' '}
+                    <Skeleton h={'1rem'} w={'full'} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                    <Skeleton h={'1rem'} w={'full'} mt={2} />
+                  </>
+                ) : (
+                  <ReactMarkdown>{data.languages}</ReactMarkdown>
+                )}
               </Box>
             </Box>
           </Flex>

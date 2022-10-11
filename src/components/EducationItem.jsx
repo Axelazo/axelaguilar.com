@@ -13,28 +13,28 @@ export default function EducationItem(props) {
     <>
       <Stack
         direction={['column', 'row']}
-        p={2}
         w={'full'}
-        mt={2}
+        mt={5}
         backgroundColor={useColorModeValue('#fcfcfd', '#211E2B')}
-        py={3}
-        px={4}
+        py={5}
+        px={5}
         rounded={'lg'}
       >
         <Image
           w={{ base: '3rem' }}
           h={{ base: '3rem' }}
-          src={`/img/education/${props.education.url}.png`}
           rounded={'lg'}
           border={'1px'}
           borderColor={'grey'}
+          src={`http://localhost:1337${props.education.attributes.Logo?.data.attributes.url}`}
         ></Image>
         <Box pl={2}>
-          <Heading fontSize={'xl'}>{props.education.grade}</Heading>
+          <Heading fontSize={'xl'}>{props.education.attributes.Grade}</Heading>
           <Text fontWeight={'100'} color={'#a1a1a1'}>
-            {props.education.school} • {props.education.period.start}
+            {props.education.attributes.School} •{' '}
+            {props.education.attributes.Start}
             {' - '}
-            {props.education.period.end}
+            {props.education.attributes.End}
           </Text>
         </Box>
       </Stack>

@@ -6,14 +6,23 @@ import {
   useColorModeValue,
   Image,
   Icon,
-  Badge,
-  HStack,
   Text,
 } from '@chakra-ui/react';
+import { IoLogoIonic, IoLogoWordpress } from 'react-icons/io';
+import { DiAndroid, DiSqllite, DiReact } from 'react-icons/di';
+import { Link } from 'react-router-dom';
 
 export default function PortfolioItem(props) {
+  const iconData = {
+    wordpress: IoLogoWordpress,
+    ionic: IoLogoIonic,
+    android: DiAndroid,
+    sqllite: DiSqllite,
+    react: DiReact,
+  };
+
   return (
-    <Center>
+    <Link relative to={`${props.id}`}>
       <Box
         w={'full'}
         backgroundColor={useColorModeValue('#fcfcfd', '#211E2B')}
@@ -23,10 +32,13 @@ export default function PortfolioItem(props) {
       >
         <Box bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
           <Image
-            src={`/img/education/${props.portfolioData?.url}.png`}
+            src={`http://localhost:1337${props.portfolioData.attributes.logo?.data.attributes.url}`}
             layout={'fit'}
             minW={'100%'}
           />
+          <a>
+            <b></b>
+          </a>
         </Box>
         <Stack minH={'4rem'}>
           <Box>
@@ -34,20 +46,19 @@ export default function PortfolioItem(props) {
               color={useColorModeValue('gray.700', 'white')}
               fontSize={'2xl'}
               fontFamily={'body'}
-              whiteSpace={'nowrap'}
             >
-              {props.portfolioData.title}
+              {props.portfolioData.attributes.title}
             </Heading>
           </Box>
           <Box>
-            <Text>{props.portfolioData.description}</Text>
+            <Text>{props.portfolioData.attributes.description}</Text>
           </Box>
           <Center pt={2}>
-            {props.portfolioData.techs?.map((tech, index) => {
+            {props.portfolioData.attributes.tech?.data.map((tech, index) => {
               return (
                 <Icon
                   key={index}
-                  as={tech}
+                  as={iconData[tech]}
                   alt={'Ionic'}
                   mx={2}
                   boxSize={6}
@@ -57,6 +68,6 @@ export default function PortfolioItem(props) {
           </Center>
         </Stack>
       </Box>
-    </Center>
+    </Link>
   );
 }

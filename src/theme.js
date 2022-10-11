@@ -18,6 +18,17 @@ const theme = extendTheme({
       body: {
         bg: mode('#E9E7EF', '#17151F')(props),
       },
+      '&::-webkit-scrollbar': {
+        width: '10px',
+        backgroundColor: '#F5F5F5',
+      },
+      '&::-webkit-scrollbar-track': {
+        boxShadow: 'inset 0 0 6px rgba(0,0,0,0.3)',
+        backgroundColor: '#F5F5F5',
+      },
+      '&::-webkit-scrollbar-thumb': {
+        backgroundColor: '#A1A1A1',
+      },
     }),
   },
   fonts: {
