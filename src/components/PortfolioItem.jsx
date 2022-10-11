@@ -11,6 +11,7 @@ import {
 import { IoLogoIonic, IoLogoWordpress } from 'react-icons/io';
 import { DiAndroid, DiSqllite, DiReact } from 'react-icons/di';
 import { Link } from 'react-router-dom';
+import { baseURL } from '../api/axelaguilar';
 
 export default function PortfolioItem(props) {
   const iconData = {
@@ -32,13 +33,10 @@ export default function PortfolioItem(props) {
       >
         <Box bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
           <Image
-            src={`http://localhost:1337${props.portfolioData.attributes.logo?.data.attributes.url}`}
+            src={`${baseURL}${props.portfolioData.attributes.logo?.data.attributes.url}`}
             layout={'fit'}
             minW={'100%'}
           />
-          <a>
-            <b></b>
-          </a>
         </Box>
         <Stack minH={'4rem'}>
           <Box>
