@@ -5,7 +5,7 @@ const token =
 
 export const baseURL =
   process.env.NODE_ENV === 'development'
-    ? 'https://api.axelaguilar.com'
+    ? 'http://localhost:1337'
     : 'https://api.axelaguilar.com';
 
 const apiURL = '/api';
