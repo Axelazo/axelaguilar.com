@@ -15,7 +15,7 @@ export default function Project() {
       setData(response.data.data);
       setTimeout(function () {
         setIsLoading(false);
-      }, 20000);
+      }, 200);
     });
   }, []);
 
