@@ -1,6 +1,6 @@
 import React from 'react';
 import '@fontsource/inter';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { ChakraProvider, Box, Stack, Flex, Container } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 

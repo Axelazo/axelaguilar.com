@@ -18,6 +18,7 @@ export default function About() {
 
   useEffect(() => {
     axelaguilar.get(`/about`).then(response => {
+      console.log(axelaguilar.defaults.baseURL);
       setData(response.data.data.attributes);
       setTimeout(function () {
         setIsLoading(false);
