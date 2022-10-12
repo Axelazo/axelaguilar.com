@@ -9,7 +9,9 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
+
 import { iconData } from '../misc/IconData';
+import { baseURL } from '../api/axelaguilar';
 
 export default function PortfolioProjectData(props) {
   return (
@@ -48,7 +50,7 @@ export default function PortfolioProjectData(props) {
           return (
             <Image
               key={index}
-              src={`http://localhost:1337${screenshot.attributes.url}`}
+              src={`${baseURL}${screenshot.attributes.url}`}
               minW={'full'}
               rounded={'lg'}
               mt={5}
