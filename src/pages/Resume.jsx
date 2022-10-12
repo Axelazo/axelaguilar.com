@@ -1,6 +1,5 @@
 import { React, useEffect, useState } from 'react';
-import { Flex, Box, Stack, Heading, HStack } from '@chakra-ui/react';
-import axios from 'axios';
+import { Flex, Box, Stack, Heading } from '@chakra-ui/react';
 import WorkExperienceItemSkeleton from '../components/WorkExperienceItemSkeleton';
 import WorkExperienceItemList from '../components/WorkExperienceItemList';
 import EducationItemSkeleton from '../components/EducationItemSkeleton';
@@ -34,7 +33,7 @@ export default function Resume() {
       });
 
     const education = axelaguilar
-      .get(`/educations?sort=id:asc&populate=*`)
+      .get(`/educations?sort=id:desc&populate=*`)
       .then(response => {
         setEducations(response.data.data);
       });

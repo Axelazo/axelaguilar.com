@@ -5,15 +5,14 @@ import {
   Heading,
   Image,
   Text,
-  Flex,
+  HStack,
   useColorModeValue,
 } from '@chakra-ui/react';
 
 import ReactMarkdown from 'react-markdown';
+import { baseURL } from '../api/axelaguilar';
 
 export default function WorkExperienceItem(props) {
-  console.log();
-
   return (
     <Box
       mb={6}
@@ -24,7 +23,7 @@ export default function WorkExperienceItem(props) {
     >
       <Stack direction={['column', 'row']} p={2} w={'full'} mt={2}>
         <Image
-          src={`http://localhost:1337${props.workExperience.Logo?.data.attributes.url}`}
+          src={`${baseURL}${props.workExperience.logo?.data.attributes.url}`}
           w={{ base: '3rem' }}
           h={{ base: '3rem' }}
           rounded={'lg'}
@@ -32,34 +31,27 @@ export default function WorkExperienceItem(props) {
           borderColor={'grey'}
         ></Image>
         <Box pl={2} w={'full'}>
-          <Flex w={'full'} minW={'full'} align={'end'} position={'relative'}>
-            <Heading fontSize={'xl'} w={'90%'}>
-              {props.workExperience.Role}
-            </Heading>
-            <Box
-              position={{ base: 'static', md: 'absolute' }}
-              right={0}
-              alignSelf={'end'}
-              whiteSpace={'nowrap'}
-            >
-              <Text>
+          <HStack>
+            <Box w={'full'}>
+              <Heading fontSize={'xl'}>{props.workExperience.role}</Heading>
+            </Box>
+            <Box>
+              <Text whiteSpace={'nowrap'}>
                 {'from '}
-                {props.workExperience.Start}
+                {props.workExperience.start}
                 {' to '}
-                {props.workExperience.End === ''
-                  ? 'date'
-                  : props.workExperience.End}
+                {props.workExperience.end}
               </Text>
             </Box>
-          </Flex>
+          </HStack>
 
           <Text fontWeight={'light'} color={'#a1a1a1'}>
-            {`${props.workExperience.Company}, ${props.workExperience.Location}`}
+            {`${props.workExperience.company}, ${props.workExperience.location}`}
           </Text>
         </Box>
       </Stack>
       <Box p={2} fontSize={'md'} px={10}>
-        <ReactMarkdown>{props.workExperience.Description}</ReactMarkdown>
+        <ReactMarkdown>{props.workExperience.description}</ReactMarkdown>
       </Box>
     </Box>
   );

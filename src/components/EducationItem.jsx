@@ -7,6 +7,7 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { baseURL } from '../api/axelaguilar';
 
 export default function EducationItem(props) {
   return (
@@ -26,15 +27,15 @@ export default function EducationItem(props) {
           rounded={'lg'}
           border={'1px'}
           borderColor={'grey'}
-          src={`http://localhost:1337${props.education.attributes.Logo?.data.attributes.url}`}
+          src={`${baseURL}${props.education.attributes.logo?.data.attributes.url}`}
         ></Image>
         <Box pl={2}>
-          <Heading fontSize={'xl'}>{props.education.attributes.Grade}</Heading>
+          <Heading fontSize={'xl'}>{props.education.attributes.grade}</Heading>
           <Text fontWeight={'100'} color={'#a1a1a1'}>
-            {props.education.attributes.School} •{' '}
-            {props.education.attributes.Start}
+            {props.education.attributes.school} •{' '}
+            {props.education.attributes.start}
             {' - '}
-            {props.education.attributes.End}
+            {props.education.attributes.end}
           </Text>
         </Box>
       </Stack>

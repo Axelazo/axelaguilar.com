@@ -1,9 +1,12 @@
 import axios from 'axios';
 
 const token =
-  'd9cffaaf45384cfe8e6d7a49cf4649ab824adba0c885448ae71a9d8d7d2fa32f0a8945d5c98e24f2bf86e6939a7c9fef293ed6547276aa2d9db7a76eb2a3ccac8d7b73375fcd207c4eff42a58afbbc6ef07c0291636a64e10cb4130e0fbdd880369d28a6c3435951a70a4d14350c415ba76a04577ef2450baefa38ef6e7079d6';
+  '49084d503e8fbfe6ce15212c4f389ac2fc3790655f38afbe368e74597a21abcf07a307cefb948c70f8dc894c0e2fa4c0570a44f46c77b129485ab8c9b02d15d82f91c678abb76822ec6f8688147ef4a8de753691f8ab6ca0151e83a4d0d2a68ba52d553ae861849e532096c2c50a7448bd07d535bdf17c293d05823ff6b95631';
 
-export const baseURL = 'http://localhost:1337';
+export const baseURL =
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:1337'
+    : 'api.axelaguilar.com';
 
 const apiURL = '/api';
 

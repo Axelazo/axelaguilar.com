@@ -21,7 +21,7 @@ export default function About() {
       setData(response.data.data.attributes);
       setTimeout(function () {
         setIsLoading(false);
-      }, 500);
+      }, 200);
     });
   }, []);
 

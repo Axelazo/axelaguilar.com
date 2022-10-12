@@ -1,6 +1,15 @@
 import React from 'react';
-import { Box, useColorModeValue, Image, Heading } from '@chakra-ui/react';
+import {
+  Box,
+  useColorModeValue,
+  Image,
+  Heading,
+  HStack,
+  Center,
+  Icon,
+} from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
+import { iconData } from '../misc/IconData';
 
 export default function PortfolioProjectData(props) {
   return (
@@ -13,9 +22,27 @@ export default function PortfolioProjectData(props) {
       w={'full'}
       h={'100%'}
     >
-      <Box w={'full'}>
-        <Heading>{props.data.attributes.title}</Heading>
-      </Box>
+      <HStack>
+        <Box w={'full'}>
+          <Heading>{props.data.attributes.title}</Heading>
+        </Box>
+        <Box>
+          <Center pt={2}>
+            {props.data.attributes.tech?.data.map((tech, index) => {
+              return (
+                <Icon
+                  key={index}
+                  as={iconData[tech]}
+                  alt={'Ionic'}
+                  mx={2}
+                  boxSize={6}
+                ></Icon>
+              );
+            })}
+          </Center>
+        </Box>
+      </HStack>
+
       <Box w={'full'}>
         {props.data.attributes?.screenshots.data?.map((screenshot, index) => {
           return (

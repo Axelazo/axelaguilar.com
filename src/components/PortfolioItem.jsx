@@ -8,20 +8,12 @@ import {
   Icon,
   Text,
 } from '@chakra-ui/react';
-import { IoLogoIonic, IoLogoWordpress } from 'react-icons/io';
-import { DiAndroid, DiSqllite, DiReact } from 'react-icons/di';
+
 import { Link } from 'react-router-dom';
 import { baseURL } from '../api/axelaguilar';
+import { iconData } from '../misc/IconData';
 
 export default function PortfolioItem(props) {
-  const iconData = {
-    wordpress: IoLogoWordpress,
-    ionic: IoLogoIonic,
-    android: DiAndroid,
-    sqllite: DiSqllite,
-    react: DiReact,
-  };
-
   return (
     <Link relative to={`${props.id}`}>
       <Box
@@ -36,6 +28,7 @@ export default function PortfolioItem(props) {
             src={`${baseURL}${props.portfolioData.attributes.logo?.data.attributes.url}`}
             layout={'fit'}
             minW={'100%'}
+            fallbackSrc={'/img/spinner.gif'}
           />
         </Box>
         <Stack minH={'4rem'}>
