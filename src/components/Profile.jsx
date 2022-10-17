@@ -35,7 +35,7 @@ export default function Profile() {
   }, []);
 
   return (
-    <Box border={'1px'} borderRadius={'lg'} mb={12}>
+    <Box border={'1px'} borderRadius={'lg'} mb={{ base: '0', md: '12' }}>
       <Flex justify={'center'} mt={-20}>
         <Avatar
           size={'2xl'}

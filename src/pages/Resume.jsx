@@ -43,7 +43,7 @@ export default function Resume() {
         setIsLoading(false);
       }, rndInt * 1000);
     });
-  }, []);
+  }, [rndInt]);
 
   return (
     <Flex

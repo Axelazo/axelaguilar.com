@@ -25,14 +25,16 @@ export default function Portfolio() {
       maxH={{ base: '100vh', md: '100vh' }}
     >
       <Grid
-        maxH={'100vh'}
-        overflow={{ base: 'visible', sm: 'visible', md: 'auto' }}
         p={{ base: 2, md: 8 }}
-        templateColumns={{ base: 'repeat(2, 2fr)', md: 'repeat(3, 2fr)' }}
+        templateColumns={{
+          base: 'repeat(2, 2fr)',
+          md: 'repeat(2, 2fr)',
+          sm: 'repeat(2, 2fr)',
+          lg: 'repeat(3, 2fr)',
+        }}
         gap={6}
         w={{ base: 'full' }}
         className={'test'}
-        overflowX={'hidden'}
       >
         {isLoading ? (
           <>

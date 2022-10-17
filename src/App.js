@@ -24,7 +24,7 @@ function App() {
         position={'absolute'}
         overflow={{ base: 'auto', md: 'hidden' }}
       >
-        <Container maxW={'8xl'}>
+        <Container maxW={{ md: '8xl' }} padding={0}>
           <Stack
             alignItems={'start'}
             direction={{
@@ -36,7 +36,7 @@ function App() {
           >
             <Box
               minW={{ base: '100%', sm: '100%', md: '30%' }}
-              minH={'100vh'}
+              minH={{ base: 'auto', md: 'auto' }}
               maxH={'100vh'}
             >
               <SidebarMenu></SidebarMenu>
