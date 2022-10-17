@@ -1,8 +1,9 @@
 import { React, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Flex, Skeleton, Stack } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import PortfolioProjectData from './PortfolioProjectData';
 import axelaguilar from '../api/axelaguilar';
+import PortfolioProjectSkeleton from './PortfolioProjectSkeleton';
 
 export default function Project() {
   const params = useParams();
@@ -26,12 +27,7 @@ export default function Project() {
       maxH={{ base: '100vh', md: '100vh' }}
     >
       {isLoading ? (
-        <Stack w={'full'} p={5}>
-          <Skeleton w={'full'} h={'30rem'}></Skeleton>
-          <Skeleton w={'full'} h={'30rem'}></Skeleton>
-          <Skeleton w={'full'} h={'30rem'}></Skeleton>
-          <Skeleton w={'full'} h={'30rem'}></Skeleton>
-        </Stack>
+        <PortfolioProjectSkeleton></PortfolioProjectSkeleton>
       ) : (
         <PortfolioProjectData data={data}></PortfolioProjectData>
       )}
