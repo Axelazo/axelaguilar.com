@@ -2,27 +2,33 @@ import { Flex, Grid } from '@chakra-ui/react';
 import PortfolioItem from '../components/PortfolioItem';
 import { PortfolioItemProps } from '../interfaces/PortfolioItemProps';
 
+//Portfolio
+import axelaguilar from '../assets/img/portfolio/axelaguilar.jpeg';
+import peliculazas from '../assets/img/portfolio/peliculazas.png';
+import quotify from '../assets/img/portfolio/quotify.png';
+import timewarpAnimation from '../assets/img/portfolio/timewarp-animation.png';
+
 const Projects: PortfolioItemProps[] = [
   {
-    imageUrl: '../src/assets/img/portfolio/peliculazas.png',
+    imageUrl: peliculazas,
     title: 'Peliculazas!',
     description: 'Movie watching website!',
     icons: ['wordpress'],
   },
   {
-    imageUrl: '../src/assets/img/portfolio/quotify.png',
+    imageUrl: quotify,
     title: 'Quotify!',
     description: 'Bookmark quotes!',
     icons: ['android', 'react', 'ionic'],
   },
   {
-    imageUrl: '../src/assets/img/portfolio/timewarp-animation.png',
+    imageUrl: timewarpAnimation,
     title: 'TimeWarp Animation',
     description: 'TWA Website',
     icons: ['react', 'strapi'],
   },
   {
-    imageUrl: '../src/assets/img/portfolio/axelaguilar.jpeg',
+    imageUrl: axelaguilar,
     title: 'Axel Aguilar',
     description: 'Personal Website',
     icons: ['react'],
