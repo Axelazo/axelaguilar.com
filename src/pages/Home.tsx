@@ -1,5 +1,4 @@
 import { Flex, Box, Heading, Text } from '@chakra-ui/react';
-import React from 'react';
 
 export default function Home() {
   return (
@@ -9,7 +8,7 @@ export default function Home() {
           My name is Axel Aguilar
         </Heading>
         <Text maxW={{ base: '100%', md: '50%' }}>
-          I'm a 3D Artist / Programmer aspiring to become a Technical Artist!
+          I'm a Programmer / 3D Artist aspiring to become a Technical Artist!
         </Text>
       </Box>
     </Flex>
